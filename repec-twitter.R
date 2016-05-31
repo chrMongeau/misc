@@ -98,12 +98,11 @@ update_list <- paste0(root,
 #content(update_list)
 
 updates <- paste('From', last_update, 'to', Sys.Date(), length(to_add),
-	"#RePEc #economists have joined https://ideas.repec.org/i/etwitter.html:",
-	'https://twitter.com/chrMongeau/lists/repec-twitter') %>%
+	"#RePEc #economists have joined https://ideas.repec.org/i/etwitter.html ",
+	'List: https://twitter.com/chrMongeau/lists/repec-twitter') %>%
 	url_escape
 
 reply_update <-	paste0('https://api.twitter.com/1.1/statuses/update.json',
 		'?status=', updates,
 		'&in_reply_to_status_id=', reply_status) %>%
 		POST(config(token = twitter_token))
-content(reply_update)
